@@ -3,8 +3,8 @@
 namespace App\Events\Auth;
 
 use App\User;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
 class UserRequestedActivationEmail
 {
