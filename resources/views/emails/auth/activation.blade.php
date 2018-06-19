@@ -3,7 +3,10 @@
 
 Thanks for signing up, please activate your account.
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => route('auth.activate', [
+  'token' => $user->activation_token,
+  'email' => $user->email
+  ])])
 Button Text
 @endcomponent
 
