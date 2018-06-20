@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Events\Auth\UserRequestedActivationEmail;
 
 class ActivationResendController extends Controller
 {
@@ -19,6 +20,10 @@ class ActivationResendController extends Controller
 
       $user = User::byEmail($request->email)->first();
 
+      event(new UserRequestedActivationEmail($user));
+
+      return redirect()->route('login')
+            ->withSuccess('Account activation email has been resent.');
     }
 
     protected function validateResendRequest(Request $request)
