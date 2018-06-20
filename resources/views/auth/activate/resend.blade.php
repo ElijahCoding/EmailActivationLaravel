@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Resend Activation Email') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('auth.activate.resend') }}">
                         @csrf
 
                         <div class="form-group row">
